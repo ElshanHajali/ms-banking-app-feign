@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create loans table
+      author: Elshan Hacaliyev
+      changes:
+        - createTable:
+            tableName: loans
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: customer_id
+                  type: bigint
+                  constraints:
+                    nullable: true
+              - column:
+                  name: start_dt
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: type
+                  type: varchar(45)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: total
+                  type: number
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount_paid
+                  type: number
+                  constraints:
+                    nullable: false
+              - column:
+                  name: outstanding_amount
+                  type: number
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store loans information
+            schema: public

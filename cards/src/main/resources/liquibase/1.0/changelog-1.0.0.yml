@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create cards table
+      author: Elshan Hacaliyev
+      changes:
+        - createTable:
+            tableName: cards
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: customer_id
+                  type: bigint
+                  constraints:
+                    nullable: true
+              - column:
+                  name: number
+                  type: varchar(19)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: type
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: total_limit
+                  type: numeric(16,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount_used
+                  type: numeric(16,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: available_amount
+                  type: numeric(16,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamptz
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store cards information
+            schemaName: public
